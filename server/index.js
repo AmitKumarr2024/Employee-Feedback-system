@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -18,7 +18,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, // Ensure this environment variable is set in Render
+    origin: ["http://localhost:5173", "http://localhost:8001"], // Ensure this environment variable is set in Render
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true, // Allow credentials to be sent
   })
