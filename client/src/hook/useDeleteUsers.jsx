@@ -14,7 +14,7 @@ const useDeleteUser = () => {
     const token = localStorage.getItem("token"); // Adjust as necessary
 
     try {
-      const response = await fetch(`https://employee-feedback-system-554y.onrender.com/api/user/delete/${id}`, {
+      const response = await fetch(`/api/user/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json", // Set the content type if needed
@@ -25,7 +25,7 @@ const useDeleteUser = () => {
       if (!response.ok) {
         throw new Error("Failed to delete user");
       }
-      
+
 
       setSuccess(true);
     } catch (err) {

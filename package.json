@@ -7,10 +7,9 @@
   "scripts": {
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Amit Kumar",
+  "author": "Amit kumar",
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^8.32.0",
@@ -23,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.3",
     "nodemon": "^3.1.7",
+    "sentry": "^0.1.2",
     "validator": "^13.12.0",
     "winston": "^3.14.2"
   }

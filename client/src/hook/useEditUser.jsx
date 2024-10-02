@@ -12,7 +12,7 @@ const useEditUser = () => {
       setSuccess(false); // Reset success state
 
       const response = await fetch(
-        `https://employee-feedback-system-554y.onrender.com/api/user/user-update/${id}`,
+        `/api/user/user-update/${id}`,
         {
           method: "POST", // Change to POST method
           credentials: "include", // Include credentials with the request

@@ -15,7 +15,7 @@ const useAllUsers = () => {
       // Retrieve token from localStorage
       const token = localStorage.getItem('token');
 
-      const response = await fetch('https://employee-feedback-system-554y.onrender.com/api/user/all-user', {
+      const response = await fetch('/api/user/all-user', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const useAllUsers = () => {
       const result = await response.json();
       setUsers(result.data); // Set the users data
       console.log("AllUser", result.data);
-      
+
 
     } catch (err) {
       // Handle token expiration (optional logic)

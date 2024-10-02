@@ -33,7 +33,7 @@ const useUserData = () => {
         setLoading(true);
         setError(null); // Reset error before the new request
 
-        const response = await fetch(`https://employee-feedback-system-554y.onrender.com/api/user/single-user/${userId}`, {
+        const response = await fetch(`/api/user/single-user/${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
