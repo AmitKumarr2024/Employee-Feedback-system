@@ -1,51 +1,47 @@
-import path from 'path'
+import path from 'path';
 import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectToMongoDb from "./config/connectToMongoDb.js";
 import UserRoutes from "./components/Users/user.routes.js";
 import FeedbackRoutes from "./components/Feedback/feedback.routes.js";
 
-const Port = process.env.PORT; // Use a default port if process.env.PORT is undefined
-const app = express(); // Remove "new", it's not needed with express()
+// Set default port if process.env.PORT is undefined
+const Port = process.env.PORT || 8001;
+const app = express();
 
-const __dirname=path.resolve();
+// Resolve __dirname
+const __dirname = path.resolve();
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    methods: ["GET", "POST", "DELETE","PUT"],
+    origin: process.env.CLIENT_URL, // Ensure this environment variable is set in Render
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true, // Allow credentials to be sent
   })
 );
 
+// Serve static files from client/dist
+app.use(express.static(path.join(__dirname, "client", "dist")));
 
-app.use(express.static(path.join(__dirname,"/client/dist")))
+// Catch-all route to serve index.html for any unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html")); // Fixed to use sendFile
+});
 
-app.get("*",(req,res)=>{
-  res.send(path.join(__dirname,"client","dist","index.html"))
-})
-
+// Middleware to parse JSON and cookies
 app.use(express.json());
-// Add this middleware
 app.use(cookieParser());
 
-// Api routes
-
+// API routes
 app.use("/api/user/", UserRoutes);
-
-
-// feedback route
 app.use("/api/feedback/", FeedbackRoutes);
 
-// app.get("/", (req, res) => {
-//   res.status(200).send("<h1>Hi Amit, How are You?</h1>");
-// });
-
+// Start the server
 app.listen(Port, () => {
-  connectToMongoDb();
-  console.log("Server Started Successfully At :", Port);
+  connectToMongoDb(); // Ensure MongoDB connection is established
+  console.log("Server started successfully at:", Port);
 });
