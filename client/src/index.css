@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+    font-family: "Roboto", sans-serif;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the root take full viewport height */
+  }
+  
+  main {
+    flex: 1; /* Make the main content area grow */
+  }
+  
+  .footer {
+    background-color: #d1d5db; /* Equivalent to bg-slate-300 */
+    height: 56px; /* Corresponds to h-14 */
+  }
+  

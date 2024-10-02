@@ -1,0 +1,29 @@
+{
+  "name": "skill",
+  "version": "1.0.0",
+  "description": "Employee feedback",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amit kumar",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/node": "^8.32.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.3",
+    "nodemon": "^3.1.7",
+    "sentry": "^0.1.2",
+    "validator": "^13.12.0",
+    "winston": "^3.14.2"
+  }
+}
