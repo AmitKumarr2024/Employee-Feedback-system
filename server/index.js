@@ -1,3 +1,4 @@
+import path from 'path'
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,6 +13,7 @@ import FeedbackRoutes from "./components/Feedback/feedback.routes.js";
 const Port = process.env.PORT; // Use a default port if process.env.PORT is undefined
 const app = express(); // Remove "new", it's not needed with express()
 
+const __dirname=path.resolve();
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
@@ -19,6 +21,14 @@ app.use(
     credentials: true, // Allow credentials to be sent
   })
 );
+
+
+app.use(express.static(path.join(__dirname,"/client/dist")))
+
+app.get("*",(req,res)=>{
+  res.send(path.join(__dirname,"client","dist","index.html"))
+})
+
 app.use(express.json());
 // Add this middleware
 app.use(cookieParser());
