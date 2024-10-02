@@ -19,8 +19,8 @@ const __dirname = path.resolve();
 app.use(
   cors({
     origin: ["http://localhost:5173", "http://localhost:8001"], // Ensure this environment variable is set in Render
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true, // Allow credentials to be sent
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
   })
 );
 
