@@ -25,7 +25,7 @@ app.use(
 );
 
 // Serve static files from client/dist
-app.use(express.static(path.join(__dirname, "client", "dist")));
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 // Catch-all route to serve index.html for any unknown routes
 app.get("*", (req, res) => {
