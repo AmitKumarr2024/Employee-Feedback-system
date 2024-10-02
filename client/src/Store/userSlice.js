@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Async thunk to fetch all users
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   const token = localStorage.getItem('token');
-  const response = await fetch('/api/user/all-user', {
+  const response = await fetch('https://employee-feedback-system-554y.onrender.com/api/user/all-user', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
@@ -17,7 +17,9 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   }
 
   const data = await response.json();
+  console.log("UserSlice",data);
   return data.data; // Assuming the users are in data.data
+  
 });
 
 // Create a slice for user management

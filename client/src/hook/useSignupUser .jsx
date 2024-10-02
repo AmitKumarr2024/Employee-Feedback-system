@@ -11,7 +11,7 @@ const useSignupUser = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("/api/user/signup", {
+      const response = await fetch("https://employee-feedback-system-554y.onrender.com/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Specify that we're sending JSON

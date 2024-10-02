@@ -6,7 +6,9 @@ export const fetchFeedbackByReceiver = createAsyncThunk(
   'feedback/fetchByReceiver',
   async (receiverId, thunkAPI) => {
     try {
-      const response = await axios.get(`/api/feedback/receiver/${receiverId}`);
+      const response = await axios.get(`https://employee-feedback-system-554y.onrender.com/api/feedback/receiver/${receiverId}`);
+      console.log("feedback reciever",response.data);
+      
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

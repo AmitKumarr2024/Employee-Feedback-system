@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // API URL
-const FEEDBACK_API_URL = "/api/feedback/createFeedback";
+const FEEDBACK_API_URL = "https://employee-feedback-system-554y.onrender.com/api/feedback/createFeedback";
 
 // Async thunk to handle feedback creation
 export const createFeedback = createAsyncThunk(
@@ -22,6 +22,8 @@ export const createFeedback = createAsyncThunk(
       }
 
       const data = await response.json();
+      console.log("feedback",data);
+      
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
