@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "client/dist")));
 
 // Catch-all route to serve index.html for any unknown routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html")); // Fixed to use sendFile
+  res.sendFile(path.join(__dirname + "client", "dist", "index.html")); // Fixed to use sendFile
 });
 
 // Middleware to parse JSON and cookies
