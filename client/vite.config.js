@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://employee-feedback-system-554y.onrender.com/', // Ensure this is your correct backend URL
+        target: 'https://employee-feedback-system-554y.onrender.com', // Ensure this is your correct backend URL
         changeOrigin: true,
         secure: true, // Keep this as true for HTTPS
       },
