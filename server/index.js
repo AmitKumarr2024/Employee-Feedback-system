@@ -18,12 +18,14 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:8001"], // Ensure this environment variable is set in Render
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true,
+    origin: ['http://localhost:5173', 'http://localhost:8001'], // Allow both origins
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true, // Allow credentials to be sent
   })
 );
 
+app.use(express.json());
+app.use(cookieParser());
 // Serve static files from client/dist
 app.use(express.static(path.join(__dirname, "client/dist")));
 
@@ -33,8 +35,6 @@ app.get("*", (req, res) => {
 });
 
 // Middleware to parse JSON and cookies
-app.use(express.json());
-app.use(cookieParser());
 
 // API routes
 app.use("/api/user/", UserRoutes);
